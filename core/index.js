@@ -1,13 +1,10 @@
 import {reactive, effectWatch} from "./render-setup.js";
 
-const app =  {
+export default  {
     render(context) {
-        effectWatch(() => {
-            document.body.innerHTML = ""
-            let div = document.createElement('div')
-            div.innerText = context.state.count;
-            document.body.appendChild(div);
-        })
+        let div = document.createElement('div')
+        div.innerText = context.state.count;
+        return  div;
     },
     setup(){
         const state = reactive({
@@ -19,4 +16,3 @@ const app =  {
         }
     }
 } 
-app.render(app.setup());
