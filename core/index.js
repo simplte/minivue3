@@ -8,7 +8,7 @@ export default {
 		return h(
 			'div',
 			{
-				id: 'bqc',
+				id: 'bqc' + context.state.count,
 				class: 'bqc'
 			},
 			[
