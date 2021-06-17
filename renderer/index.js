@@ -58,7 +58,7 @@ export function diff(n1, n2) {
 				if (oldChildren.length > length) {
 					for (let index = length; index < oldChildren.length; index++) {
 						const oldVnode = oldChildren[index];
-						oldVnode.el.parent.remove(oldVnode.el);
+						oldVnode.el.parentElement.removeChild(oldVnode.el);
 					}
 				}
 			}
