@@ -91,6 +91,7 @@ effectWatch(() => {
 // double依赖于user.age  user.age 已经被重新赋值，这时double拿到的值就是处理过后的数据了
 // 从而完成  double对user.age的数据依赖
 user.age = 2;
+user.age = 4;
 
 // 5:扩展,double  现在是一个数字, 也可以是一个html视图,  只需要依赖的user.age 发生变化,
 // html 的内容对应修改,这样就完成了数据更新,数据也发生变化
