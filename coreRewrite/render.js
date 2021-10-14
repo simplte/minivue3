@@ -14,13 +14,13 @@ class Dep {
         })
     }
 }
-export function effectWatch(cb) {
+ function effectWatch(cb) {
     watchCb = cb;
     cb()
     watchCb = null;
 }
 let watchVal = new Map();
-export function reactive(raw) {
+ function reactive(raw) {
     return new Proxy(raw, {
         get(target, key) {
             let rawObj = watchVal.get(target);
@@ -55,15 +55,16 @@ export function reactive(raw) {
         }
     })
 }
-// let testVal = reactive({
-//     num:1
-// })
-// let baseNum = 0;
-// effectWatch(()=> {
-//     console.log('1111111111111')
-//     baseNum = testVal.num;
-//     console.log(baseNum);
-// })
-// testVal.num = 2;
-// testVal.num = 9;
-// testVal.num = 10;
+let testVal = reactive({
+    num:1
+})
+console.log(testVal)
+let baseNum = 0;
+effectWatch(()=> {
+    console.log('1111111111111')
+    baseNum = testVal.num;
+    console.log(baseNum);
+})
+testVal.num = 2;
+testVal.num = 9;
+testVal.num = 10;

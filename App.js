@@ -7,6 +7,7 @@ export function createApp(component) {
             let init = false;
             let preSubTree = null;
             effectWatch(() => {
+                console.log('state变化，执行dome操作')
                 if(!init) {
                     init = true;
                     container.innerHTML = ""
